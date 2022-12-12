@@ -6,17 +6,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 //Routes for category
-Route::get("/categories", [CategoryController::class, "index"]);
-Route::get("/categories/{id}", [CategoryController::class, "show"]);
-Route::get("/categories/{id}/edit", [CategoryController::class, "edit"]);
-Route::get("/categories/{id}/delete", [CategoryController::class, "delete"]);
-Route::post("/categories/store", [CategoryController::class, "store"]);
-Route::post("/categories/update", [CategoryController::class, "update"]);
+Route::prefix("/categories")->group(function() {
+    Route::get("/", [CategoryController::class, "index"]);
+    Route::get("/{id}", [CategoryController::class, "show"]);
+    Route::get("/{id}/edit", [CategoryController::class, "edit"]);
+    Route::get("/{id}/delete", [CategoryController::class, "delete"]);
+    Route::post("/store", [CategoryController::class, "store"]);
+    Route::post("/update", [CategoryController::class, "update"]);
+});
 
 //Routes for products
-Route::get("/products", [ProductController::class, "index"]);
-Route::get("/products/{id}", [ProductController::class, "show"]);
-Route::post("/products/store", [ProductController::class, "store"]);
+
+Route::prefix("/products")->group(function() {
+    Route::get("/products", [ProductController::class, "index"]);
+    Route::get("/products/{id}", [ProductController::class, "show"]);
+    Route::post("/products/store", [ProductController::class, "store"]);
+});
+
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
