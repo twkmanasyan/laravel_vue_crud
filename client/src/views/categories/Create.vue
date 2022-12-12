@@ -45,6 +45,9 @@ export default {
       }
     }
   },
+  mounted() {
+    document.title = "Create Category";
+  },
   methods:{
     sendForm(e) {
       e.preventDefault();

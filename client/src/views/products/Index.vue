@@ -23,6 +23,7 @@ export default {
     }
   },
   mounted() {
+    document.title = "Product List";
     this.$store.dispatch("Products/getAllProducts");
   },
   computed:{

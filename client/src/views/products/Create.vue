@@ -89,7 +89,8 @@ export default {
     }
   },
   mounted() {
-      this.$store.dispatch("Categories/getAllCategories");
+    document.title = "Create Product";
+    this.$store.dispatch("Categories/getAllCategories");
   },
   methods:{
     sendForm(e) {

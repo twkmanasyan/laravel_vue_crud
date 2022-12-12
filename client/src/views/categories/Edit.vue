@@ -45,6 +45,8 @@ export default {
     }
   },
   mounted() {
+    document.title = "Create Edit";
+
     this.$store.dispatch("Categories/getOneCategory", this.$route.params.id);
     this.form.name = this.category.name;
     this.form.notes = this.category.notes;

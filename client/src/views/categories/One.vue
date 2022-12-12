@@ -17,9 +17,17 @@
 <script>
 export default {
   name: "One",
+  data() {
+    return {
+      title:''
+    }
+  },
   mounted() {
+    document.title = 'Category';
+
     const id = this.$route.params.id;
     this.$store.dispatch("Categories/getOneCategory", id);
+
   },
   computed:{
     category() {

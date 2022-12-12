@@ -20,8 +20,8 @@
 export default {
   name: "ProductOne",
   mounted() {
+    document.title = "Product";
     const id = this.$route.params.id;
-    console.log(id)
     this.$store.dispatch("Products/getOneProduct", id);
   },
   computed:{
